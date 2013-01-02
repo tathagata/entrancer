@@ -1,27 +1,26 @@
-*.py[co]
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+#.classpath
+.settings/
+.loadpath
 
-# Packages
-*.egg
-*.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-develop-eggs
-.installed.cfg
+# External tool builders
+.externalToolBuilders/
 
-# Installer logs
-pip-log.txt
+# # Locally stored "Eclipse launch configurations"
+*.launch
 
-# Unit test / coverage reports
-.coverage
-.tox
+# CDT-specific
+.cproject
 
-#Translations
-*.mo
-
-#Mr Developer
-.mr.developer.cfg
+# PDT-specific
+.buildpath
