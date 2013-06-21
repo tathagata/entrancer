@@ -15,7 +15,8 @@ To run
 	java -cp "../lib/*;." entrancer.JDTParser "path/to/java/files"  "output/path"
 	
 would generate a  yyyyMMddhhmm.csv for each .java file under subject application containing all the identifiers and the fully qualified method signatures in the code.		
-Dogfooding example:
+
+Obligatory Dogfooding example:
 
     java -cp "../lib/*;." entrancer.JDTParser "../src/entrancer/"  "."
 	
