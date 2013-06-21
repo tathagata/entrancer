@@ -14,6 +14,18 @@ To run
     
 	java -cp "../lib/*;." entrancer.JDTParser "path/to/java/files"  "output/path"
 	
+would generate a  yyyyMMddhhmm.csv for each .java file under subject application containing all the identifiers and the fully qualified method signatures in the code.		
+Dogfooding example:
+
+    java -cp "../lib/*;." entrancer.JDTParser "../src/entrancer/"  "."
+	
+would generate a yyyyMMddhhmm.csv file with first line
+	
+    JDKAPIDBAccess.java, entrancer, com, mongodb, Mongo, com, mongodb, MongoException, com, mongodb, WriteConcern, com, mongodb, DB, com, mongodb, DBCollection, com, mongodb, BasicDBObject, com, mongodb, DBObject, com, mongodb, DBCursor, com, mongodb, ServerAddress, JDKAPIDBAccess, Mongo, DBCollection, DBCollection, DBCollection, DBCursor, JDKAPIDBAccess, m, Mongo, DB, jdk_coll, com.mongodb.DB.getCollection(String), db, getCollection, ext_coll, com.mongodb.DB.getCollection(String), db, getCollection, self_coll, com.mongodb.DB.getCollection(String), db, getCollection, Exception, ex, java.lang.Throwable.getMessage(), ex, getMessage, String, getDocumentation, String, code, String, typeDescription, java.io.PrintStream.println(String), System, out, println, StringBuffer, cursor, com.mongodb.DBCollection.find(com.mongodb.DBObject, com.mongodb.DBObject), jdk_coll, find, BasicDBObject, code, com.mongodb.BasicDBObject.append(String, Object), BasicDBObject, typeDescription, append, java.io.PrintStream.println(String), System, out, println, code, typeDescription, String, com.mongodb.DBCursor.hasNext(), cursor, hasNext, description, String, org.bson.BSONObject.get(String), com.mongodb.DBCursor.next(), cursor, next, get, java.lang.StringBuffer.append(String), sbr, append, description, com.mongodb.DBCursor.close(), cursor, close, java.lang.StringBuffer.toString(), sbr, toString, 	
+	
+	
 JDKAPI
 ======
 To expand method calls with corresponding java docs, one needed programmatic access to the API documentation. However, there is no way to get javadoc statements for a method programmatically. Accordingly, I scraped the jdk documentation and stored them in MongoDB. JDKAPIDBAccess.java is meant for access this database.
+
+This repo contains only the java code and not the tracelab components and the python text processing toolbelt written for entrancer.
