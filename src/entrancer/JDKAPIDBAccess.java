@@ -1,14 +1,10 @@
 package entrancer;
 
 import com.mongodb.Mongo;
-import com.mongodb.MongoException;
-import com.mongodb.WriteConcern;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
 import com.mongodb.DBCursor;
-import com.mongodb.ServerAddress;
 
 public class JDKAPIDBAccess {
 	Mongo m;
@@ -31,14 +27,16 @@ public class JDKAPIDBAccess {
 	}
 	
 	public String getDocumentation(String code, String typeDescription){
+		System.out.println("*******************");
 		StringBuffer sbr = new StringBuffer();
         cursor = jdk_coll.find(new BasicDBObject("signature", code), new BasicDBObject("type_description",typeDescription).append("description", 1));
-        //System.out.println("DB:"+code+typeDescription);
+        System.out.println("DB:"+code+typeDescription);
         try {
-        	if (cursor.hasNext()) sbr.append(cursor.next().get("description"));
-            //while(cursor.hasNext()) {
-            //    sbr.append(cursor.next());
-            //}
+        	String description ="";
+        	if (cursor.hasNext()) {
+        		description=(String)cursor.next().get("description"); 
+        		sbr.append(description);
+        	}
         } finally {
             cursor.close();
             //m.close();
@@ -55,7 +53,7 @@ public class JDKAPIDBAccess {
         }
         */
         
-       
+       /*
         cursor = self_coll.find(new BasicDBObject("signature", code), new BasicDBObject("type_description",typeDescription).append("description", 1));
         //System.out.println("DB:"+code+typeDescription);
         try {
@@ -68,7 +66,7 @@ public class JDKAPIDBAccess {
             cursor.close();
             m.close();
         }
-        
+        */
         return sbr.toString();
 	}
 	
