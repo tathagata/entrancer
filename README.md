@@ -29,4 +29,4 @@ JDKAPI
 ======
 To expand method calls with corresponding java docs, one needed programmatic access to the API documentation. However, there is no way to get javadoc statements for a method programmatically. Accordingly, I scraped the jdk documentation and stored them in MongoDB. JDKAPIDBAccess.java is meant for access this database.
 
-This repo contains only the java code and not the tracelab components and the python text processing toolbelt written for entrancer.
+This repo contains only the java code and not the tracelab components or the python text processing toolbelt written for entrancer.
